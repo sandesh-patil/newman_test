@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "e4798fb7-2a91-415e-b76e-8fb15fa91aef",
+		"name": "newman_test_validateTitle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9150271a-9385-4bd8-bc7b-6c5ca4e84e9c",
+						"exec": [
+							"const jsonData = (pm.response.json());",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Title contains COVID\", function () {",
+							" let x = 0",
+							"  for (i=0 ; i < jsonData.articles.length; i++) {",
+							"      if(jsonData.articles[i].title) {",
+							"             pm.expect(jsonData.articles[x++].title).to.contain(\"COVID\")",
+							"      }",
+							"  }",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://newsapi.org/v2/everything?q=COVID&apiKey=c47959b3a3424d06a7c82e95b81d4ceb",
+					"protocol": "https",
+					"host": [
+						"newsapi",
+						"org"
+					],
+					"path": [
+						"v2",
+						"everything"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "COVID"
+						},
+						{
+							"key": "apiKey",
+							"value": "c47959b3a3424d06a7c82e95b81d4ceb"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
