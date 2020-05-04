@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node app/index.js $PORT",
-    "test": "node_modules/.bin/newman run test/newman_test_validateTitle.postman_collection.json -r html --reporter-html-export 'shippable/testresults/result.html'"
+    "test": "node_modules/.bin/newman run test/newman_test_validateTitle.postman_collection.json -r cli,junit,htmlextra --reporter-junit-export results.xml --reporter-htmlextra-export results.html --reporter-htmlextra-template test.hbs"
   },
   "repository": {
     "type": "git",
