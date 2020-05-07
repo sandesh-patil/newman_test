@@ -11,7 +11,7 @@
         - TEST_RESULTS_DIR=$SHIPPABLE_REPO_DIR/shippable/testresults
         - CODE_COVERAGE_DIR=$SHIPPABLE_REPO_DIR/shippable/codecoverage
         - TESTS_LOC_DIR=$SHIPPABLE_REPO_DIR/test
-        - MOD_LOC=$SHIPPABLE_REPO_DIR/node_modules/.bin/
+        # - MOD_LOC=$SHIPPABLE_REPO_DIR/node_modules/.bin/
     
     # Create directories for test and coverage reports
     # before_script:
